@@ -4,10 +4,6 @@
     <meta charset="utf-8">
     <title>test</title>
     <style>
-        body {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-        }
         .center {
             text-align: center;
         }
@@ -25,32 +21,38 @@
             border-radius: 180px;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
     <main class="center">
         <img id="go-go-lamp" src="./images/gogo_off.jpg">
         <br/>
         <div id="button-outer">
-            <input type="button" id="button" onmousedown="down()" onmouseup="up()">
+            <input type="button" id="button">
         </div>
     </main>
 
     <script>
-        window.oncontextmenu = function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            return false;
-        }
+        $(function (){
+            let button = $('#button');
+
+            button.on('mousedown', down);
+            button.on('mouseup', up);
+            button.on('touchstart', down);
+            button.on('touchend', up);
+        })
 
         let audio = new Audio("./sounds/gako.wav");
-        let img = document.getElementById('go-go-lamp');
+        let img = $('#go-go-lamp');
 
         function down() {
             img.src = './images/gogo_off.jpg';
+            img.attr('src', './images/gogo_off.jpg');
         }
 
         function up() {
             img.src = './images/gogo_on.jpg';
+            img.attr('src', './images/gogo_on.jpg');
             audio.currentTime = 0;
             audio.play();
         }
