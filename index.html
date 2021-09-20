@@ -17,12 +17,14 @@
 
         function down(img) {
             img.src = "./images/gogo_off.jpg";
+            return false;
         }
 
         function up(img) {
             img.src = "./images/gogo_on.jpg";
             audio.currentTime = 0;
             audio.play();
+            return false;
         }
     </script>
 </body>
