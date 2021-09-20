@@ -4,34 +4,41 @@
     <meta charset="utf-8">
     <title>test</title>
     <style>
-        * {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-        }
         .center {text-align: center;}
-        #go-go-lamp {
+        #button-outer {
             margin: auto;
-            background-image: url("./images/gogo_off.jpg");
-            background-size: contain;
-            width: 650px;
-            height: 650px;
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+            background-color: black;
+        }
+        #button {
+            margin-top: 10px;
+            width: 180px;
+            height: 180px;
+            border-radius: 180px;
         }
     </style>
 </head>
-<body oncontextmenu="return false" oncopy="return false">
+<body>
     <main class="center">
-        <div id="go-go-lamp" onmousedown="down(this)" onmouseup="up(this)"></div>
+        <img id="go-go-lamp" src="./images/gogo_off.jpg">
+        <br/>
+        <div id="button-outer">
+            <input type="button" id="button" onmousedown="down()" onmouseup="up()">
+        </div>
     </main>
 
     <script>
         let audio = new Audio("./sounds/gako.wav");
+        let img = document.getElementById('go-go-lamp');
 
-        function down(element) {
-            element.style.backgroundImage = 'url("./images/gogo_off.jpg")';
+        function down() {
+            img.src = './images/gogo_off.jpg';
         }
 
-        function up(element) {
-            element.style.backgroundImage = 'url("./images/gogo_on.jpg")';
+        function up() {
+            img.src = './images/gogo_on.jpg';
             audio.currentTime = 0;
             audio.play();
         }
