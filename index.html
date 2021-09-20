@@ -61,6 +61,7 @@
         function up() {
             img.src = './images/gogo_on.jpg';
             img.attr('src', './images/gogo_on.jpg');
+            audio.pause();
             audio.currentTime = 0;
             audio.play();
         }
