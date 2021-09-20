@@ -38,6 +38,10 @@
 
     <script>
         $(function (){
+            window.oncontextmenu = function() {
+                return false;
+            }
+
             let button = $('#button');
 
             button.on('mousedown', down);
