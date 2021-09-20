@@ -4,31 +4,32 @@
     <meta charset="utf-8">
     <title>test</title>
     <style>
-        body {
-            -webkit-touch-callout:none;
-            user-select:none;
-        }
         .center {text-align: center;}
+        #go-go-lamp {
+            margin: auto;
+            background-image: url("./images/gogo_off.jpg");
+            background-size: contain;
+            width: 650px;
+            height: 650px;
+        }
     </style>
 </head>
-<body oncontextmenu="return false" oncopy="return false">
+<body>
     <main class="center">
-        <img src="./images/gogo_off.jpg" onmousedown="down(this)" onmouseup="up(this)">
+        <div id="go-go-lamp" onmousedown="down(this)" onmouseup="up(this)"></div>
     </main>
 
     <script>
         let audio = new Audio("./sounds/gako.wav");
 
-        function down(img) {
-            img.src = "./images/gogo_off.jpg";
-            return false;
+        function down(element) {
+            element.style.backgroundImage = 'url("./images/gogo_off.jpg")';
         }
 
-        function up(img) {
-            img.src = "./images/gogo_on.jpg";
+        function up(element) {
+            element.style.backgroundImage = 'url("./images/gogo_on.jpg")';
             audio.currentTime = 0;
             audio.play();
-            return false;
         }
     </script>
 </body>
