@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <title>test</title>
     <style>
-        body {pointer-events: none;}
-        .center {text-align: center;}
+        body {
+            -webkit-touch-callout: none;
+        }
+        .center {
+            text-align: center;
+        }
         #button-outer {
             margin: auto;
             width: 200px;
@@ -31,6 +35,12 @@
     </main>
 
     <script>
+        window.oncontextmenu = function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        }
+
         let audio = new Audio("./sounds/gako.wav");
         let img = document.getElementById('go-go-lamp');
 
